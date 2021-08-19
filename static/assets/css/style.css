@@ -1,0 +1,79 @@
+.card {
+    border:.5px solid #071D5C !important;
+    border-radius:5px !important;
+    -webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
+
+.card:hover {
+    border:.5px solid #071D5C !important;
+    border-radius:5px !important;
+    border: none !important;
+    -webkit-box-shadow: none !important;
+	-moz-box-shadow: none !important;
+	box-shadow: none !important;
+}
+
+.new-card {
+    border:.5px solid #071D5C !important;
+    border-radius:5px !important;
+    -webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
+
+.new-card:hover {
+    border:.5px solid #071D5C !important;
+    border-radius:5px !important;
+    -webkit-box-shadow: none !important;
+	-moz-box-shadow: none !important;
+	box-shadow: none !important;
+    transition:unset !important;
+    transform:none !important;
+}
+
+.badg-beginner{
+    color:#121527 !important;
+    background-color:#dae7ff !important;
+}
+
+.badg-intermediate{
+    color:#121527 !important;
+    background-color:#fcf085 !important;
+}
+
+.badg-advanced{
+    color:#121527 !important;
+    background-color:#ffc5c8 !important;
+}
+
+.paragraph-text{
+    color:#3d4852 !important;
+}
+
+.paragraph-span{
+    background-color:#ffeecb !important;
+}
+
+.mylink{
+    text-decoration:none !important;
+    border-bottom:none !important;
+}
+
+.mylink:hover, .mylink:focus{
+    color:#E01E5B !important;
+    text-decoration:none !important;
+    border-bottom:none !important;
+}
+
+a[title]:hover::after { 
+    font-family: 'Aleo', serif !important;
+    color:red !important;
+} 
+
+
+
+
+
+

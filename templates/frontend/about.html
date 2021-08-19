@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}IDev_IO{% endblock title %}
+
+{% block content %}
+    
+    <!--Navbar-->
+        {% include "includes/navbar.html" %}
+    <!--Navbar/-->
+
+    <div class="section bg-white text-center mb-5">
+      <div class="container">
+          <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <h1 class="text-danger">IDev_IO</h1>
+                    <p class="lead text-secondary mt-3" style="font-family: 'Aleo', serif; line-height:1.7;">My name is <span class="text-danger">Ahmed</span> and i love to call me <span class="text-danger">IDev_IO</span>. I'm a programmer and i love to share my knowledge <a class="text-danger mylink" href="https://idev-io.hashnode.dev/" style="text-decoration:none !important;">here</a> </p>
+                </div>
+          </div>
+      </div>
+  </div>
+
+  <div class="section bg-white text-center mb-5">
+    <div class="container">
+        <div class="row">
+              <div class="col-lg-8 offset-lg-2">
+                    <h4>Contact Me</h4>
+                    <div class="text-center mt-3">
+                        <a href="mailto: hello.idev.io@gmail.com" class="btn btn-outline-secondary btn-sm" title="IDev_IO">Send Email</a>
+                    </div>
+              </div>
+        </div>
+    </div>
+</div>
+  
+    <!--Footer-->
+      {% include "includes/footer.html" %}
+    <!--Footer/-->
+
+{% endblock content %}

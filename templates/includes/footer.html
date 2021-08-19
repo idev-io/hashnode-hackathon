@@ -1,0 +1,27 @@
+{% load static %}
+  
+<footer class="footer-1 bg-light text-secondary">
+  <div class="container">
+  <div class="d-flex flex-column flex-md-row justify-content-between align-items-center text-secondary">
+      <div class="links text-secondary">
+          <ul class="footer-menu list-unstyled d-flex flex-row text-center text-md-left text-secondary">
+              <li class="text-secondary"><a class="text-secondary" href="{% url 'topthings:home' %}"><span class="text-secondary">Home</span></a></li>
+              <li class="text-secondary"><a class="text-secondary" href="{% url 'topthings:things' %}"><span class="text-secondary">Articles</span></a></li>
+              <li class="text-secondary"><a class="text-secondary" href="{% url 'topthings:about-me' %}"><span class="text-secondary">About Me</span></a></li>
+          </ul>
+      </div>
+      <div class="social mt-4 mt-md-0">
+      <a class="twitter btn btn-outline-secondary btn-icon" href="https://twitter.com/idev_io_" target="_blank" title="IDev_IO">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a class="github btn btn-outline-secondary btn-icon" href="https://github.com/idev-io" target="_blank" title="IDev_IO">
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+  </div>
+  <div class="copyright text-center">
+      <hr />
+      <p class="small">&copy; <script>document.write(new Date().getFullYear());</script>, made with <span class="text-danger"><i class="fas fa-heart"></i></span> by <span><b class="text-secondary">IDev_IO</b></span></p>
+  </div>
+  </div>
+  </footer>

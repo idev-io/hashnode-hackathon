@@ -1,0 +1,81 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>{% block title %}{% endblock title %}</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="A new design system for developing with less effort.">
+    <meta name="author" content="BootstrapBay">
+
+    <link href="{% static 'assets/img/favicon.ico' %}" rel="icon" type="image/png">
+    
+    <link rel="stylesheet" href="{% static 'assets/vendor/bootstrap/bootstrap.min.css' %}">
+		<link rel="stylesheet" href="{% static 'assets/css/lazy.css' %}">
+		<link rel="stylesheet" href="{% static 'assets/css/demo.css' %}">
+		<link rel="stylesheet" href="{% static 'assets/fonts/fontawesome/css/all.min.css' %}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Aleo&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+  </head>
+  <body class="index">
+
+  {% block content %}
+  {% endblock content %}
+
+<!-- Javascript -->
+
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="{% static 'assets/vendor/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/popper/popper.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/bootstrap/bootstrap.min.js' %}" ></script>
+  <script src="{% static 'assets/fonts/fontawesome/js/all.min.js' %}" ></script>
+
+  <!-- optional plugins -->
+  <script src="{% static 'assets/vendor/nouislider/js/nouislider.min.js' %}"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <!--   lazy javascript -->
+  <script src="{% static 'assets/js/lazy.js' %}"></script>
+
+  {% if messages %}
+    {% for msg in messages %}
+      <script>
+        const Toast = Swal.mixin({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+          }
+        })
+        
+        Toast.fire({
+          icon: 'success',
+          title: '{{msg}}'
+        })
+      </script>
+    {% endfor %}
+  {% endif %}
+
+  <script>
+    function copyLink(){
+      var copiedlink = document.getElementById('linkthing');
+      copiedlink.select();
+      copiedlink.setSelectRange(0, 9999);
+      document.execCommand('copy');
+    }
+  </script>
+
+
+</body>
+</html>
+

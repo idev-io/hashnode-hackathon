@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Error{% endblock title %}
+
+{% block content %}
+    
+    <!--Navbar-->
+        {% include "includes/navbar.html" %}
+    <!--Navbar/-->
+
+    <!--Banner-->
+    <div class="page-hero bg-white text-white pt-2 pb-1" id="banner">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-8 offset-lg-2 text-center">
+                    <div>
+                        <img class="img-responsive" src="{% static 'assets/img/error.svg' %}" alt="404" title="404" width="400" height="400">
+                    </div>
+
+                    <div class="title mb-4">
+                        <a href="{% url 'topthings:home' %}" class="btn btn-outline-secondary btn-md" title="Home">Home</a>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <!--Banner/-->
+
+
+    <!--Footer-->
+        {% include "includes/footer.html" %}
+    <!--Footer/-->
+
+{% endblock content %}

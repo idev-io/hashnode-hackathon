@@ -1,0 +1,45 @@
+{% load static %}
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+    <div class="container">
+      <a class="navbar-brand" href="{% url 'topthings:home' %}">
+        <img src="{% static 'assets/img/Logo-1.svg' %}" alt="Example Navbar 1" class="mr-2" height="30">
+        
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown-7" aria-controls="navbarNavDropdown-7"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown-7">
+        <ul class="navbar-nav">
+          <a class="nav-link" href="{% url 'topthings:home' %}">Home</a>
+          <a class="nav-link" href="{% url 'topthings:things' %}">Things</a>
+          <a class="nav-link" href="{% url 'topthings:about-me' %}">About</a>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+
+          <li class="nav-item">
+            
+            {% if user.is_authenticated %}
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dashboard</a>
+              <div class="dropdown-menu" x-placement="top-start" style="position: absolute; transform: translate3d(0px, -3px, 0px); top: 0px; left: 0px; will-change: transform;">
+                <a class="dropdown-item" href="{% url 'topthings:user-dashboard' %}">Dashboard</a>
+                <a class="dropdown-item" href="{% url 'topthings:create-thing' %}">Create thing</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/logout/">Logout</a>
+              </div>
+            </li>
+
+            {% else %}
+              <a class="btn btn-outline-light" href="/login/auth0">
+                Login
+              </a>
+            {% endif %}
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+</nav>

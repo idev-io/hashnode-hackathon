@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} {{ thing.title }} {% endblock title %}
+
+{% block content %}
+    
+    <!--Navbar-->
+        {% include "includes/navbar.html" %}
+    <!--Navbar/-->
+
+    <!--Banner-->
+    <div class="page-hero bg-secondary text-white pt-3 pb-2" id="banner">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-8 offset-lg-2 text-center">
+                    <div class="title">
+                    <h2 class="text-white">{{ thing.title }}</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Banner/-->
+
+    <div class="container mt-4">
+        <div class="col-md-12">
+            <div class="col-md-12">
+                <div class="header">
+                  <h4 class="text-info" id="typography">{{ thing.subtitle | title }}</h4>
+                  {% if thing.link %}
+                    <a class="float-right btn btn-secondary btn-pill btn-sm ml-3 mt-1" title="{{ thing.title }} 👈" href="{{ thing.link }}" target="_blank"><i class="fas fa-external-link-alt"></i> Open</a>
+                  {% endif %}
+
+                  
+                    <div class="pt-4">
+                        <span class="badge badge-danger"><i class="far fa-calendar"></i> <span class="text-danger">{{ thing.created_at |date:"M d, Y" }}</span></span>
+
+                        <div class="mt-4 mb-2">
+                            <span class="badge badge-secondary">{{ thing.category.category }}</span>
+                        </div>
+                        
+                        <p class="card-text">{{ thing.description | safe }}</p>
+                    </div>
+
+
+                    <div class="pt-4 mb-4">
+                        <h6 class="text-secondary" id="typography"><i class="far fa-user ml-2"></i>  {{ thing.user.username | title }}</h6>
+                    </div>
+
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <!--Footer-->
+        {% include "includes/footer.html" %}
+    <!--Footer/-->
+
+{% endblock content %}
+
+

@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} Dashboard {% endblock title %}
+
+{% block content %}
+    
+    <!--Navbar-->
+        {% include "includes/navbar.html" %}
+    <!--Navbar/-->
+
+    <div class="container mt-5">
+        <div class="info">
+          <div class="row">
+            <div class="col-12 col-md-4 text-center">
+                <img src="{{ userdata.picture }}" alt="{{userdata.name}}" title="{{userdata.name}}" class="img-fluid rounded-circle shadow-lg" style="width: 180px;">
+            </div>
+              <div class="col-12 col-md-8 d-flex flex-column align-items-center align-items-lg-start">
+                <div class="d-flex flex-row align-items-start mt-3 mt-lg-0">
+                    <div class="name">
+                        <h5 class="mb-0">{{ userdata.name | title }}</h4>
+                    </div>
+                </div>
+                <div class="stats d-flex flex-row align-items-center align-items-lg-start text-center text-lg-left">
+                    <div class="posts ml-2 ml-lg-0"><p class="lead"><b>
+                        {{ things }} post{{ things|pluralize }}</b></p></div>
+                </div>
+                <p class="lead text-center text-lg-left">Software Engineer</p>
+              </div>
+          </div>
+        </div>
+
+        <div class="mt-5 mb-5">
+            <h6>My last Things
+
+                <span class="float-right"><a class="btn btn-secondary btn-pill btn-sm" href="{% url 'topthings:create-thing' %}" title="New Thing">New Thing</a></span>
+            </h6>
+        </div>
+      
+        <div class="row mt-5 mb-5">
+
+            {% for thing in last_created_things %}
+                <div class="col-md-4">
+                    <div class="component">
+                        
+                        <div class="card new-card">
+                            <div class="card-header">
+                                <img class="card-img" src="{{ thing.picture.url }}" alt="{{ thing.title }}" title="{{ thing.title }}">
+                            </div>
+                            <div class="card-body">
+                                <span class="badge badge-secondary mb-4">{{ thing.category.category }}</span>
+                                <span class="badge badge-pill
+                                    {% if thing.rank == 'Beginner' %}
+                                        badg-beginner
+                                    {% elif thing.rank == 'Intermediate' %}
+                                        badg-intermediate
+                                    {% else %}
+                                        badg-advanced
+                                    {% endif %}
+                                     mb-2 float-right">{{ thing.rank }}</span>
+
+                                <h4 class="card-title">{{ thing.title }}</h4>
+
+                                <div class="mt-2">
+                                    <a href="{% url 'topthings:edit-thing' thing.slug %}" class="btn btn-outline-info btn-sm" title="Edit"><i class="far fa-edit"></i></a>
+
+                                    <div class="float-right">
+                                        <form action="{% url 'topthings:delete-thing' thing.slug %}" method="POST">
+                                            {% csrf_token %}
+    
+                                            <button class="btn btn-outline-danger btn-sm float-right" title="Delete"><i class="far fa-trash-alt"></i></button>
+    
+                                        </form>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div class="card-footer pt-0">
+                                <a href="{% url 'topthings:single-thing' thing.slug %}" class="btn btn-outline-primary btn-sm">Read More</a>
+                                <span class="float-right">{{ thing.created_at |date:"M d, Y" }}</span>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+        
+
+
+      </div>
+
+    <!--Footer-->
+        {% include "includes/footer.html" %}
+    <!--Footer/-->
+
+{% endblock content %}
+
+
+
